@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .tonal-shift-via-glassmorphism {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.scale-98-on-click:active {
+  transform: scale(0.98);
+}
