@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://backend-jefn.onrender.com',
+        target: 'https://backend-jefn.onrender.com/',
         changeOrigin: true,
       }
     }

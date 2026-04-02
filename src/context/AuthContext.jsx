@@ -23,15 +23,23 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async ({ email, password }) => {
-        const res = await api.post('/auth/login', { email, password });
-        localStorage.setItem('token', res.data.token);
-        setUser(res.data.user);
+        try {
+            const res = await api.post('/auth/login', { email, password });
+            localStorage.setItem('token', res.data.token);
+            setUser(res.data.user);
+        } catch (error) {
+            throw new Error(error.response?.data?.message || error.message);
+        }
     };
 
     const register = async ({ name, email, password }) => {
-        const res = await api.post('/auth/register', { name, email, password });
-        localStorage.setItem('token', res.data.token);
-        setUser(res.data.user);
+        try {
+            const res = await api.post('/auth/register', { name, email, password });
+            localStorage.setItem('token', res.data.token);
+            setUser(res.data.user);
+        } catch (error) {
+            throw new Error(error.response?.data?.message || error.message);
+        }
     };
 
     const logout = () => {
